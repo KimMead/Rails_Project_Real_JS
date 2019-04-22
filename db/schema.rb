@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_04_21_151151) do
 
   create_table "trips", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "city_id"
+    t.integer "attraction_id"
     t.integer "rating"
     t.text "comment"
     t.datetime "created_at", null: false
