@@ -16,5 +16,5 @@ Attraction.create(name: "Rodeo Drive", state_id: 2)
 State.create(name: "South Dakota")
 State.create(name: "California")
 
-Trip.create(user_id: 1, attraction_id: 1, comment: "Great!")
-Trip.create(user_id: 2, attraction_id: 2, attraction_id: 3, comment: "Rodeo Drive was my favourite!")
+#Trip.create(user_id: 1, attraction_id: 1, comment: "Great!")
+# Trip.create(user_id: 2, attraction_id: 2, attraction_id: 3, comment: "Rodeo Drive was my favourite!")
