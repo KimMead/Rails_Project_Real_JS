@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController 
-    # before_action :require_login
+    before_action :require_login
 
     def create 
         @user = User.find_by(name: params[:name])
@@ -21,9 +21,7 @@ class SessionsController < ApplicationController
      
     def require_login
         return head(:forbidden) unless session.include? :user_id
-        if !logged_in?
-            flash[:error] = "You must be logged in to view this page."
-            redirect_to signin_path
+        
         end
     end
 end 
