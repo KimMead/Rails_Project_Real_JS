@@ -1,7 +1,7 @@
 <h1>Sign In</h1>
 
 <%= form_for :user do |f| %>
-    <%= f.email_field :email, placeholder: "Email" %>
+    <%= f.text_field :name, placeholder: "Name" %>
     <%= f.password_field :password, placeholder: "Password" %><br><br>
     <%= f.submit "Sign In", :class => 'btn btn-block btn-success' %><br>
   <% end %>
