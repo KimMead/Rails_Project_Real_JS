@@ -1,26 +1,24 @@
 require 'pry'
 class UsersController < ApplicationController
-  
-  def index
-    @users = User.all 
-  end 
-  
+  helper_method :logged_in?, :current_user 
+
   def new
     @user = User.new
   end 
    
   def create
-    @user = User.create(user_params)
-    session[:user_id] = @user.id
-    redirect_to users_path(@user)
-  end 
-
-  def show    
-    @user = User.find(params[:id])    
-      if @user != current_user       
-    redirect_to root_path  
-    end   
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
+    else
+      render :new
+    end
   end
+
+  def show  
+    set_user
+  end 
   
     private
     def user_params
