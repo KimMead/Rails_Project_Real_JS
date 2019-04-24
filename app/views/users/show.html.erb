@@ -1,4 +1,8 @@
-<h1>Welcome <%= @user.name %></h1>
+<h1>Welcome, <%= @user.name %></h1>
+<h3>Your Trips</h3> 
 
-<li><%= link_to "Log Out", logout_path %></li>
-<li><%= link_to "Your Trips", user_path(@user) %></li>
+<%= link_to "Create Attraction", new_attraction_path(@user) %>
+</br>
+</br>
+
+<%= link_to "Log Out", logout_path %>

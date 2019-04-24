@@ -12,9 +12,7 @@ Attraction.create(name: "Mount Rushmore", state_id: 1)
 Attraction.create(name: "Golden Gate Bridge", state_id: 2)
 Attraction.create(name: "Rodeo Drive", state_id: 2)
 
-
 State.create(name: "South Dakota")
 State.create(name: "California")
+State.create(name: "New York")
 
-#Trip.create(user_id: 1, attraction_id: 1, comment: "Great!")
-# Trip.create(user_id: 2, attraction_id: 2, attraction_id: 3, comment: "Rodeo Drive was my favourite!")

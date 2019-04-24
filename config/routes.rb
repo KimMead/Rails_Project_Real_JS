@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 root 'welcome#home'
 
 resources :users, except: [:index]
+resources :trips
+resources :attractions, only: [:new, :create, :show]
+resources :cities
 
 get '/signup', to: 'users#new'
 post '/signup', to: 'users#create' 
@@ -11,5 +14,6 @@ get '/signin', to: 'sessions#new'
 post '/signin', to: 'sessions#create'
 
 get '/logout', to: 'sessions#destroy'
+
 
 end
