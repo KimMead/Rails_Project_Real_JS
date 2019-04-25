@@ -1,0 +1,13 @@
+<h1>Select a State</h1>
+
+<%= form_for :state do |f| %>
+    
+    <br/>
+    <br/>
+    <%= f.label :state, "Select State" %>
+    <%= f.collection_select :state_id, State.order('name ASC'), :id, :name, :include_blank => false %> 
+    <br/>
+    <br/>
+    <%= f.submit "Select"  %>
+<% end %>
+
