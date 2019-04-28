@@ -15,4 +15,6 @@ Attraction.create(name: "Rodeo Drive", state_id: 2)
 State.create(name: "South Dakota")
 State.create(name: "California")
 State.create(name: "New York")
+State.create(name: "Arizona")
+State.create(name: "Texas")
 
