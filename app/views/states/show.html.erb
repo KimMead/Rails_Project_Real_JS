@@ -1,11 +1,8 @@
 <div class="list-details">
-<h1><%= @state.name %></h1>
+<h1><%= @state %></h1>
 
 <h3>Browse Attractions</h3>
 
-<%= @state.attractions.each do |attraction| %>
-<li><%= link_to attraction.name, attraction_path(attraction) %> 
-</li>
-<% end %>
+
 
 <%= link_to "Create Attraction", new_attraction_path %>

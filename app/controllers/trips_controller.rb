@@ -20,6 +20,11 @@ class TripsController < ApplicationController
         set_user
         find_attraction
         @trip = @user.trips.build(trip_params)
+        if @trip.save
+            redirect_to user_path(@user)
+        else 
+            render :new 
+        end 
     end
 
     private
@@ -31,7 +36,7 @@ class TripsController < ApplicationController
     def find_trip 
         @trip = Trip.find(params[:id])
 
-    def find_city
+    def find_attraction
         @attraction = Attraction.find_by(id: params[:attraction_id])
     end
 

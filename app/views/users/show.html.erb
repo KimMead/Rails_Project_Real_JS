@@ -1,7 +1,13 @@
 <h1>Welcome, <%= @user.name %></h1>
 <h3>Your Trips</h3> 
+<% if @user.trips.count == 0 %> 
+<p>You haven't added any trips yet.</p>  
+<% end %>
+
+<h3>Create A Trip</h3> 
 
 <%= link_to "Search By State", states_path %>
+
 </br>
 </br>
 
