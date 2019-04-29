@@ -1,8 +1,9 @@
 <h1>Welcome, <%= @user.name %></h1>
-<h3>Your Trips</h3> 
-<% if @user.trips.count == 0 %> 
-<p>You haven't added any trips yet.</p>  
-<% end %>
+</br>
+<h2>Manage Your Trips</h2> 
+
+<%= link_to "See Your List", user_trips_path(@user) %>
+
 
 <h3>Create A Trip</h3> 
 

@@ -35,6 +35,7 @@ class TripsController < ApplicationController
 
     def find_trip 
         @trip = Trip.find(params[:id])
+    end 
 
     def find_attraction
         @attraction = Attraction.find_by(id: params[:attraction_id])
