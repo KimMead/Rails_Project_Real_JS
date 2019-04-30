@@ -12,7 +12,7 @@ class TripsController < ApplicationController
 
     def new
         set_user
-        find_attraction 
+        find_state
         @trip = Trip.new
     end
 
@@ -21,7 +21,7 @@ class TripsController < ApplicationController
         find_attraction
         @trip = @user.trips.build(trip_params)
         if @trip.save
-            redirect_to user_path(@user)
+            redirect_to user_trips_path(@user)
         else 
             render :new 
         end 
@@ -31,6 +31,10 @@ class TripsController < ApplicationController
 
     def find_user 
         @user = User.find_by(id: params[:user_id])
+    end 
+
+    def find_state 
+        @state = State.find_by(id: params[:state_id])
     end 
 
     def find_trip 
