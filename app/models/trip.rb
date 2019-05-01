@@ -1,16 +1,19 @@
 class Trip < ApplicationRecord
     belongs_to :user 
-    belongs_to :attraction
-    validates :attraction, presence: true 
+    belongs_to :state
+    validates :state, presence: true 
 
-    def attraction_attributes=(attributes)
+    def state_attributes=(attributes)
+        if attributes[:state] != ""
+            state = State.find_by(name: attributes[:state])
         if attributes[:attraction] != ""
             attraction = Attraction.find_or_create_by(name: attributes[:attraction])
-            if attributes[:state] != ""
-                state = State.find_or_create_by(name: attributes[:state])
         else 
-            state = State.find_by(id: attributes[:state_id])
-            end 
-         end 
-    end
+            attraction = Attraction.find_by(id: attributes[:attraction])
+        end 
+            attraction.states << state if state != "" && attraction != ""
+            attraction.save if state != ""
+            self.state_id = state.id 
+        end 
+    end 
 end 
