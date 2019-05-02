@@ -8,4 +8,11 @@ class Attraction < ApplicationRecord
     def attraction_and_state 
         "#{self.name}, #{state.name}"
     end 
+
+    def state_name=(state_name)
+        if state_name[:state] != ""
+            state = State.find_or_create_by(name: state_name[:state])
+            self.state_id = state.id 
+        end 
+    end 
 end 

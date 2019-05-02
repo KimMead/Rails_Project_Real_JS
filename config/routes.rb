@@ -10,7 +10,7 @@ post '/signin', to: 'sessions#create'
 
 get '/logout', to: 'sessions#destroy'
 
-post '/states', to: 'states#show'
+
 
 resources :users do
   resources :trips 

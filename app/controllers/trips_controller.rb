@@ -18,7 +18,7 @@ class TripsController < ApplicationController
 
     def create
         set_user
-        find_attraction
+        find_state
         @trip = @user.trips.build(trip_params)
         if @trip.save
             redirect_to user_trips_path(@user)

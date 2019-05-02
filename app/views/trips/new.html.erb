@@ -1,16 +1,12 @@
 <h1>Create A New Trip</h1> 
-
 <%= form_for :trip, url: user_trips_path do |f| %>
    
 <h2>Choose A State</h2>
     <%= f.collection_select :state, State.all, :id, :name %> 
     <br/>
     <br/>
+    <%= link_to "Select", states_path %>
 
-<h2>Choose An Attraction</h2>  
-    <%= f.fields_for :state_attributes do |state_attr| %>
-
-    <%= state_attr.collection_select :attraction_id %>
     <%= f.submit "Select"  %>
 <% end %>
 
