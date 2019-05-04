@@ -4,8 +4,9 @@
     <%= f.text_field :name, placeholder: "Name" %>
     <br/>
     <br/>
-    <%= f.label :state_id, "Select State" %>
-    <%= f.collection_select :state_id, State.order('name ASC'), :id, :name, :include_blank => true %> 
+    <%= f.text_field :state, placeholder: "State" %>
+    <br/>
+    <%= f.text_field :location, placeholder: "Location" %>
     <br/>
     <br/>
     <%= f.submit %>
