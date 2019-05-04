@@ -14,22 +14,16 @@ ActiveRecord::Schema.define(version: 2019_04_21_151151) do
 
   create_table "attractions", force: :cascade do |t|
     t.string "name"
-    t.integer "state_id"
+    t.string "location"
+    t.string "comment"
+    t.integer "user_id"
+    t.integer "attraction_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "states", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "trips", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "attraction_id"
-    t.integer "rating"
-    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

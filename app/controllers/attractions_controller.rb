@@ -1,5 +1,9 @@
 class AttractionsController < ApplicationController
    
+    def index
+        @attractions = Attraction.all 
+    end 
+    
     def new 
         @attraction = Attraction.new 
     end 
@@ -21,6 +25,6 @@ class AttractionsController < ApplicationController
     private 
 
     def attraction_params 
-        params.require(:attraction).permit(:name, :state_id, state_name:[:state])
+        params.require(:attraction).permit(:name, :location, :comment)
     end 
 end 
