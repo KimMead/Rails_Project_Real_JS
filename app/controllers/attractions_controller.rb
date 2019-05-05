@@ -1,15 +1,15 @@
 class AttractionsController < ApplicationController
    
     def new 
-        if params[:state_id] && State.find_by_id(params[:state_id])
-            @pet = vet.pets.build
+        if params[:state_id] && state = State.find_by_id(params[:state_id])
+            @attraction = state.attractions.build
         else 
             @attraction = Attraction.new 
         end 
     end 
 
     def create 
-        @attraction = Attraction.create(attraction_params)
+        @attraction = current_user.attractions.build(attraction_params)
         if @attraction.save 
             redirect_to attraction_path(@attraction)
         else 
@@ -22,7 +22,10 @@ class AttractionsController < ApplicationController
     end 
 
     def show 
-        @attraction = Attraction.find(params[:id])
+        @attraction = Attraction.find_by(id: params[:id])
+        if !@attraction 
+            redirect_to attraction_path 
+        end 
     end 
 
     private 

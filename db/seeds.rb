@@ -8,9 +8,6 @@
 User.create(email: "kim@seed.com", name: "kimmead", password: "password")
 User.create(email: "karen@seed.com", name: "karen", password: "password")
 
-Attraction.create(name: "Mount Rushmore", state_id: 1)
-Attraction.create(name: "Golden Gate Bridge", state_id: 2)
-Attraction.create(name: "Rodeo Drive", state_id: 2)
 
 State.create(name: "South Dakota")
 State.create(name: "California")

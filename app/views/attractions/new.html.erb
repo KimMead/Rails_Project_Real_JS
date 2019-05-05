@@ -4,7 +4,9 @@
     <%= f.text_field :name, placeholder: "Name" %>
     <br/>
     <br/>
-    <%= f.text_field :state, placeholder: "State" %>
+    <%= f.label :state, "State" %>
+    <%= f.collection_select :state, State.all, :id, :name, prompt: true %>
+    <br/>
     <br/>
     <%= f.text_field :location, placeholder: "Location" %>
     <br/>
