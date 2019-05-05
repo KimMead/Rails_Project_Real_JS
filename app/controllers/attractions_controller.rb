@@ -12,19 +12,19 @@ class AttractionsController < ApplicationController
         @attraction = current_user.attractions.build(attraction_params)
         if @attraction.save 
             redirect_to attraction_path(@attraction)
-        else 
-            render :new
+        else
+            render :new 
         end 
     end 
 
     def index
-        @attractions = Attraction.all 
+        @attractions = Attraction.all
     end 
 
     def show 
         @attraction = Attraction.find_by(id: params[:id])
         if !@attraction 
-            redirect_to attraction_path 
+            redirect_to attractions_path 
         end 
     end 
 
