@@ -1,0 +1,17 @@
+<h1> Edit Your Attraction </h1> 
+
+<%= form_for :attraction, :method => 'patch' do |f| %>
+    <%= f.hidden_field :attraction_id %>
+    <%= f.text_field :attraction %>
+    <br/>
+    <br/>
+    <%= f.label :state_id, "State" %>
+    <%= f.collection_select :state_id, State.all, :id, :name, prompt: true %>
+    <br/>
+    <br/>
+    <%= f.text_field :location %>
+    <br/>
+    <br/>
+    <%= f.submit %>
+  <% end %>
+

@@ -28,6 +28,27 @@ class AttractionsController < ApplicationController
         end 
     end 
 
+    def update 
+        @attraction = Attraction.find_by(id: params[:id])
+        if !@attraction 
+            redirect_to attractions_path 
+            if @attraction.update(attraction_params)
+                redirect_to attraction_path(@path)
+            else 
+                render :edit 
+            end 
+        end 
+    end 
+
+    def destroy 
+        @attraction = Attraction.find_by(id: params[:id])
+        if !@attraction 
+            redirect_to attractions_path
+            @attraction.destroy 
+            redirect_to attractions_path(@user)
+        end 
+    end 
+
     private 
 
     def attraction_params 
