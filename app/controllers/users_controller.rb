@@ -21,6 +21,14 @@ class UsersController < ApplicationController
   end 
   
     private
+
+    def set_user 
+      @user = User.find_by(id: params[:id])
+      if !@user
+        redirect_to '/'
+      end 
+    end 
+
     def user_params
       params.require(:user).permit(:email, :name, :password)
     end

@@ -1,8 +1,12 @@
 <h1>Attractions</h1> 
 
-
 <% @attractions.each do |attraction| %>
-    <%= link_to attraction.attraction_and_state, attraction_path(attraction) %>
+
+  <%= link_to attraction.attraction_and_state, attraction_path(attraction) %>
+<% end %>
+
+
       
-      <% end %>
+
+
     
