@@ -1,7 +1,14 @@
-require 'pry'
 class UsersController < ApplicationController
-  helper_method :logged_in?, :current_user 
+  before_action :require_login, only: [:index, :show] 
 
+  def index 
+    @users = User.all 
+  end 
+  
+  def show  
+    set_user
+  end 
+  
   def new
     @user = User.new
   end 
@@ -16,18 +23,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def show  
-    set_user
-  end 
-  
     private
-
-    def set_user 
-      @user = User.find_by(id: params[:id])
-      if !@user
-        redirect_to '/'
-      end 
-    end 
 
     def user_params
       params.require(:user).permit(:email, :name, :password)

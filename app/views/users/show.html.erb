@@ -1,11 +1,12 @@
-<h1>Welcome, <%= @user.name %></h1>
-
-<h2>Manage Your Trips</h2> 
-
-<%= link_to "See Your List", attractions_path(@user) %>
 </br>
 </br>
-<%= link_to "Add New Attraction", new_attraction_path(@user) %>
+</br>
+<h3>Welcome, <%= @user.name %>!</h3>
+
+ 
+<%= link_to "See Your Travel List", attractions_path(@user) %>
+</br>
+<%= link_to "Add New Trip", new_attraction_path(@user) %>
 
 
 

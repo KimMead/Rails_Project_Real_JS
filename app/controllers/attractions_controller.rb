@@ -1,6 +1,7 @@
 class AttractionsController < ApplicationController
    
     def new 
+        @user = User.find_by(id: params[:user_id])
         if params[:state_id] && state = State.find_by_id(params[:state_id])
             @attraction = state.attractions.build
         else 
@@ -9,6 +10,7 @@ class AttractionsController < ApplicationController
     end 
 
     def create 
+        @user = User.find_by(id: params[:user_id])
         @attraction = current_user.attractions.build(attraction_params)
         if @attraction.save 
             redirect_to attraction_path(@attraction)
@@ -18,6 +20,7 @@ class AttractionsController < ApplicationController
     end 
 
     def index
+        @user = User.find_by(id: params[:user_id])
         @attractions = Attraction.all
     end 
 

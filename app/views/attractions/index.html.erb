@@ -1,8 +1,11 @@
-<h1>Your Attractions</h1> 
+</br>
+</br>
+</br>
+<h4>Your Attractions</h4> 
 
 <% @attractions.each do |attraction| %>
 
-<%= link_to attraction.attraction_and_state, attraction_path(attraction) %>
+<li><%= link_to attraction.attraction_and_state, attraction_path(attraction) %></li>
 <% end %>
 
 
