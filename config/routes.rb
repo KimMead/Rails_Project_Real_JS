@@ -10,9 +10,12 @@ post '/signin', to: 'sessions#create'
 
 get '/logout', to: 'sessions#destroy'
 
-resources :users
-resources :attractions
+resources :users do
+  resources :trips 
 
+end 
+
+resources :attractions
 resources :states, only: [:index, :show]
 
 end
