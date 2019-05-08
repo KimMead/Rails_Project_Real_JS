@@ -9,14 +9,12 @@
     <%= f.label :state %>
     <%= f.text_field :state, value: @state.name %>
     <% else %> 
-    <%= f.label :state, "Select State" %>
+    <%= f.label :state_id, "Select State" %>
     <%= f.collection_select :state, State.all, :id, :name, :include_blank => false %>
     <br/>
     <br/>
-    
-    <br/>
-    <br/>
-    
+    <%= f.label :attraction %>
+    <%= f.text_field :attraction, value: @attraction %>
     <br/>
     <br/>
     <%= f.submit %>

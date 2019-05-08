@@ -2,12 +2,20 @@ class TripsController < ApplicationController
 
     def new 
         set_user
-        @attraction = Attraction.find_by(id: params[:attraction_id])
+        @state = State.find_by_id(params[:state_id])
         @trip = Trip.new 
-    end 
+    end  
      
 
     def create
+        set_user
+        @state = State.find_by_id(params[:state_id])
+        @trip = @user.trips.build(trip_params)
+        if @trip.save 
+            redirect_to user_trips_path(@user)
+        else 
+            render:new 
+        end 
     end 
 
     def index 
