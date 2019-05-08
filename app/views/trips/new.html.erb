@@ -4,17 +4,21 @@
 <h4>Create A New Trip</h4> 
 
 <%= form_for :trip, url: user_trips_path do |f| %>
-    <%= f.label :name, "Name" %>
-    <%= f.text_field :name %>
+  <% if @state %> 
+    <%= f.hidden_field :state_id, value: @state.id %>  
+    <%= f.label :state %>
+    <%= f.text_field :state, value: @state.name %>
+    <% else %> 
+    <%= f.label :state, "Select State" %>
+    <%= f.collection_select :state, State.all, :id, :name, :include_blank => false %>
     <br/>
     <br/>
-    <%= f.label :state_id, "State" %>
-    <%= f.collection_select :state_id, State.all, :id, :name, prompt: true %>
+    
     <br/>
     <br/>
-    <%= f.label :location, "Location" %>
-    <%= f.text_field :location %>
+    
     <br/>
     <br/>
     <%= f.submit %>
+    <% end %>
   <% end %>
