@@ -5,7 +5,7 @@ class TripsController < ApplicationController
             @trip = state.trips.build 
         else
             @trip = Trip.new
-            @trip.build_vet 
+            @trip.build_state
             
         end
     end  
@@ -16,7 +16,7 @@ class TripsController < ApplicationController
             redirect_to trip_path(@trip)
 
         else
-            @trip.build_vet 
+            @trip.build_state 
             render :new
         end
     end
@@ -36,6 +36,6 @@ class TripsController < ApplicationController
     private
 
     def trip_params 
-        params.require(:trip).permit(:user_id, :state_id, state_attributes:[:attraction])
+        params.require(:trip).permit(:user_id, :state_id, state_attributes: [:attraction])
     end 
 end 

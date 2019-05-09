@@ -5,6 +5,6 @@ class Trip < ApplicationRecord
 
     def state_attributes=(attributes)
         state = State.find_or_create_by(attributes)
-        self.state = state if state.valid? || self.vet 
+        self.state = state if state.valid? || self.state
     end 
 end

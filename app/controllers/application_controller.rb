@@ -16,7 +16,7 @@ helper_method :current_user, :logged_in?, :set_user, :require_login
 
   def require_login 
     if !logged_in?
-      redirect_to login_path
+      redirect_to signup_path
     end 
   end 
 end 

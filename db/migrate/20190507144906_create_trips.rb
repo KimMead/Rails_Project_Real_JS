@@ -3,7 +3,8 @@ class CreateTrips < ActiveRecord::Migration[5.2]
     create_table :trips do |t|
       t.integer :user_id
       t.integer :state_id 
-       
+      t.string :attraction
+
       t.timestamps
     end
   end
