@@ -1,31 +1,41 @@
 class TripsController < ApplicationController
 
     def new 
-        set_user
-        @state = State.find_by_id(params[:state_id])
-        @trip = Trip.new 
+        if params[:state_id] && state = State.find_by_id(params[:state_id])
+            #nested route
+            @state = state.trips.build #has_many
+        else
+            #unnested
+            @state = State.new
+              #belongs_to
+        end
     end  
      
-
     def create
-        set_user
-        @state = State.find_by_id(params[:state_id])
-        @trip = @user.trips.build(trip_params)
-        if @trip.save 
-            redirect_to user_trips_path(@user)
-        else 
-            render:new 
-        end 
-    end 
+        @trip = current_user.trips.build(trip_params)
+        if @trip.save
+            redirect_to trips_path(@user)
+
+        else
+            render :new
+        end
+    end
 
     def index 
         @user = User.find_by(id: params[:user_id])
         @trips = @user.trips.all
     end 
 
+    def show 
+        @trip = Trip.find_by(id: params[:id])
+        if !@trip 
+            redirect_to trips_path
+        end
+    end 
+
     private
 
     def trip_params 
-        params.require(:trip).permit(:user_id, :state_id)
+        params.require(:trip).permit(:user_id, :state_id, state_attributes:[:attraction])
     end 
 end 

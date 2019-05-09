@@ -4,9 +4,9 @@
 <h3>Welcome, <%= @user.name %>!</h3>
 
  
-<%= link_to "See Your Travel List", user_trips_path(@user), :class => 'btn btn-' %>
+<%= link_to "See Your Travel List", trips_path(@user) %>
 </br>
-<%= link_to "Add New Trip", new_user_trip_url(@user) %>
+<%= link_to "Add New Trip", new_trip_url(@user) %>
 
 
 
