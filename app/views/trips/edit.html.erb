@@ -3,7 +3,7 @@
 </br>
 <h4> Edit Your Attraction </h4> 
 
-<%= form_for :attraction, :method => 'patch' do |f| %>
+<%= form_for :trip, :method => 'patch' do |f| %>
     <%= f.hidden_field :attraction_id %>
     <%= f.text_field :attraction %>
     <br/>
@@ -12,9 +12,6 @@
     <%= f.collection_select :state_id, State.all, :id, :name, prompt: true %>
     <br/>
     <br/>
-    <%= f.text_field :location %>
-    <br/>
-    <br/>
+    
     <%= f.submit %>
   <% end %>
-

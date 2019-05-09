@@ -2,21 +2,21 @@ class TripsController < ApplicationController
 
     def new 
         if params[:state_id] && state = State.find_by_id(params[:state_id])
-            #nested route
-            @state = state.trips.build #has_many
+            @trip = state.trips.build 
         else
-            #unnested
-            @state = State.new
-              #belongs_to
+            @trip = Trip.new
+            @trip.build_vet 
+            
         end
     end  
      
     def create
         @trip = current_user.trips.build(trip_params)
         if @trip.save
-            redirect_to trips_path(@user)
+            redirect_to trip_path(@trip)
 
         else
+            @trip.build_vet 
             render :new
         end
     end

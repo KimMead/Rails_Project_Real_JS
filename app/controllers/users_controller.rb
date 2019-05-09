@@ -1,14 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_login, only: [:index, :show] 
 
-  def index 
-    @users = User.all 
-  end 
-  
-  def show  
-    set_user
-  end 
-  
   def new
     @user = User.new
   end 
@@ -21,11 +13,20 @@ class UsersController < ApplicationController
     else
       render :new
     end
-  end
+  end 
 
-    private
+  def index 
+    @users = User.all 
+  end 
+  
+  def show  
+    set_user
+  end 
+  
+  
+  private
 
-    def user_params
+  def user_params
       params.require(:user).permit(:email, :name, :password)
     end
   end 
