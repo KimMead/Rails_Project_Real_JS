@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login, only: [:index, :show] 
-
+  
   def new
     @user = User.new
   end 
@@ -18,12 +17,11 @@ class UsersController < ApplicationController
   def index 
     @users = User.all 
   end 
-  
-  def show  
+
+  def show 
     set_user
   end 
-  
-  
+
   private
 
   def user_params

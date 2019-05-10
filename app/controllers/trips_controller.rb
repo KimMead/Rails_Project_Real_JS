@@ -1,43 +1,41 @@
 class TripsController < ApplicationController
 
-    def index 
-        find_user 
-        @trips = Trip.all 
+    def new 
+        if params[:state_id] && state = State.find_by_id(params[:state_id])
+        @trip = state.trips.build 
+        else 
+        @trip = Trip.new 
+        @trip.build_state 
+        end 
+    end
+       
+    def create
+        @trip = current_user.trips.build(trip_params)
+        if @trip.save 
+            redirect_to trip_path(@trip)
+        else 
+            @trip.build_state 
+            render :new 
+        end 
+    end
+
+    def index
+        if !logged_in?
+            redirect_to '/'
+          end
+          if params[:state_id] && state = State.find_by_id(params[:state_id])
+            @trips = state.trips
+        end
     end 
 
     def show 
-        find_user 
         @trip = Trip.find_by(id: params[:id])
     end 
     
-    def new 
-        set_user 
-        @state = State.find_by(id: params[:state_id])
-        @trip = Trip.new   
-    end  
-     
-    def create
-        set_user 
-        @state = State.find_by(id: params[:state_id])
-        @trip = @user.trips.build(trip_params)
-        if @trip.save 
-            redirect_to trips_path(@user )
-
-        else
-            @trip.build_state 
-            render :new
-        end
-    end
-
-   
-
+    
     private
 
-    def find_user
-        @user = User.find_by(id: params[:user_id])
-    end 
-
     def trip_params 
-        params.require(:trip).permit(:user_id, :state_id, :attraction)
+        params.require(:trip).permit(:attraction, :user_id, :state_id, state_attributes: [:name] )
     end 
 end 
