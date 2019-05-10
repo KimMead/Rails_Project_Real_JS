@@ -1,0 +1,23 @@
+</br>
+</br>
+</br>
+<h4>Create A New Attraction</h4> 
+
+<%= form_for(@attraction) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %> 
+  <br/>
+  <br/>
+  <%= f.label :location %> 
+  <%= f.text_field :location %> 
+  <br/>
+  <br/> 
+  <%= f.label :state_id, "State" %>
+  <%= f.collection_select :state_id, State.all, :id, :name, prompt: true %>
+  <br/>
+  <br/>
+  
+  <%= f.submit %>
+<% end %>
+
