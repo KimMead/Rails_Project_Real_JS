@@ -1,6 +1,9 @@
 </br>
 </br>
 </br>
-<h4><%= @trip %></h4>
+<h4><%= @user.name %>'s Trip</h4> 
+<h4><%= @trip.state.name %> - <%= @trip.attraction %></h4>
 </br>
-<%= link_to "Edit Attraction", edit_trip_path %>
+<%= link_to "Edit Trip", edit_trip_path %>
+</br>
+<%= link_to "Delete Trip", trip_path(@trip), method: :delete %>
