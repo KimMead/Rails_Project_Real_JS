@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2019_05_10_224434) do
     t.string "name"
     t.text "comment"
     t.string "location"
+    t.integer "state_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

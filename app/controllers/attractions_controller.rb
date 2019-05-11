@@ -1,37 +1,37 @@
 class AttractionsController < ApplicationController
 
-    def index
-        
-    end 
-
-    def show 
-        
-    end 
-    
-    
     def new 
-        if params[:state_id] && state = State.find_by_id(params[:state_id])
-        @attraction = state.attractions.build 
-        else 
-        @attraction = Attraction.new 
-        @attraction.build_state
-        end 
+        @user = User.find_by(id: params[:user_id])
+        @state = State.find_by(id: params[:state_id])
+        @attraction = Attraction.new
     end
        
     def create
-        @attraction = current_user.attractions.build(attraction_params)
-        if @attraction.save 
-            redirect_to attraction_path(@attraction)
+        @attraction = @user.attractions.build(attraction_params)
+        if @attraction.save
+        redirect_to attraction_path(@attraction)
         else
-            @attraction.build_state 
             render :new 
         end 
     end
 
+    def index
+        if !logged_in? 
+            redirect_to '/'
+        end 
+        if params[:state_id] && state = State.find_by_id(params[:state_id])
+            @attractions = state.attractions 
+        end 
+    end 
+
+    def show 
+        @attraction = Attraction.find(params[:id])
+    end 
+    
     private
 
     def attraction_params 
-        params.require(:attraction).permit(:user_id, :state_id, :name, :location, state_attributes: [:name])
+        params.require(:attraction).permit(:name, :location, :state_id, state_attributes: [:name])
     end 
 end 
 

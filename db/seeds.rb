@@ -15,3 +15,5 @@ State.create(name: "New York")
 State.create(name: "Arizona")
 State.create(name: "Texas")
 
+Attraction.create(name: "Golden Gate Bridge", location: "San Francisco")
+

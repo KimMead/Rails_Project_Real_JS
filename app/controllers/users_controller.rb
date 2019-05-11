@@ -8,19 +8,13 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to attractions_path
     else
       render :new
     end
   end 
 
-  def index 
-    @users = User.all 
-  end 
-
-  def show 
-    set_user
-  end 
+  
 
   private
 
