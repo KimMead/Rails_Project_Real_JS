@@ -3,9 +3,14 @@
 </br>
 
 <h4><%= current_user.name.capitalize %>'s Attraction List</h4> 
-
-<%= @user.attractions.each do |attraction| %> 
-
+</br>
+<%= @attractions.each do |attraction| %> 
+<ul>
+<li>
+    <%= link_to attraction.name, attraction_path(attraction) %></li>
+    </ul>
+    
+    <% end %>
 
 
 

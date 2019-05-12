@@ -11,6 +11,8 @@ post '/signin', to: 'sessions#create'
 
 get '/logout', to: 'sessions#destroy'
 
+get '/auth/facebook/callback' => 'sessions#create'
+
 resources :users 
 
 resources :attractions  

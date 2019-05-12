@@ -3,6 +3,8 @@
 </br>
 <h4>Sign Up</h4>
 
+<%= form_for(@user) do |f| %>
+
 <%= render partial: 'layouts/errors', locals: {object: @user} %>
 
   <%= f.label :name %>
