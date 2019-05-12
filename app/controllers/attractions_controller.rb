@@ -1,4 +1,5 @@
 class AttractionsController < ApplicationController
+    before_action :require_login 
 
     def new 
         @user = User.find_by(id: params[:user_id])
@@ -7,7 +8,9 @@ class AttractionsController < ApplicationController
     end
        
     def create
-        @attraction = @user.attractions.build(attraction_params)
+        @user = User.find_by(id: params[:user_id])
+        @state = State.find_by(id: params[:state_id])
+        @attraction = @user.attraction.create(attraction_params)
         if @attraction.save
         redirect_to attraction_path(@attraction)
         else
