@@ -2,11 +2,14 @@
 </br>
 </br>
 
-<h4>Attractions!</h4> 
+<h4><%= current_user.name.capitalize %>'s Attraction List</h4> 
 
-Most visited: 
+<%= @user.attractions.each do |attraction| %> 
 
-Recently added: 
+
+
+
+
 
 
 
