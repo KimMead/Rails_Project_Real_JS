@@ -13,6 +13,8 @@ get '/logout', to: 'sessions#destroy'
 
 get '/auth/facebook/callback' => 'sessions#create'
 
+get '/states/most_visited' => 'states#most_visited', as: :most_visited
+
 resources :users 
 
 resources :attractions  
