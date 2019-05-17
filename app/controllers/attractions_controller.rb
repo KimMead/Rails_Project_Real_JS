@@ -27,7 +27,10 @@ class AttractionsController < ApplicationController
 
     def show
         @user = User.find_by(id: params[:user_id]) 
-        @attraction = Attraction.find(params[:id])
+        @attraction = Attraction.find_by(id: params[:id])
+        if !@attraction 
+            redirect_to attractions_path 
+        end 
     end 
 
     def edit 
@@ -58,7 +61,7 @@ class AttractionsController < ApplicationController
     private
 
     def attraction_params 
-        params.require(:attraction).permit(:name, :location, :state_id, state_attributes: [:name])
+        params.require(:attraction).permit(:name, :location, :comment, :state_id, state_attributes: [:name])
     end 
 end 
 

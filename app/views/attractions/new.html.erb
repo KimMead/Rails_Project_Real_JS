@@ -17,10 +17,6 @@
   <br/> 
   <%= f.label :state_id, "State" %>
   <%= f.collection_select :state_id, State.all, :id, :name, prompt: true %>
-  <br/>
-  <br/>
-  <%= f.label :comment, "Comment" %> 
-  <%= f.text_area(:comment, {:class => 'form-control'}) %>
   <hr>
   <%= f.submit "Create Attraction", :class => 'btn btn-sm btn-success' %>
 <% end %>

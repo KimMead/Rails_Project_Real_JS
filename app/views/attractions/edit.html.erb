@@ -4,18 +4,21 @@
 <h4> Edit Your Attraction </h4> 
 
 <%= form_for @attraction, :method => 'patch' do |f| %>
+  
+  <%= render partial: 'layouts/errors', locals: {object: @attraction} %>
+
   <%= f.label :name %>
-  <%= f.text_field :name %> 
+  <%= f.text_field(:name, {:class => 'form-control'}) %> 
   <br/>
   <br/>
   <%= f.label :location %> 
-  <%= f.text_field :location %> 
+  <%= f.text_field(:location, {:class => 'form-control'}) %> 
   <br/>
   <br/> 
   <%= f.label :state_id, "State" %>
   <%= f.collection_select :state_id, State.all, :id, :name, prompt: true %>
-  <br/>
-  <br/>
-  
-  <%= f.submit %>
+  <hr>
+  <%= f.submit "Update Attraction", :class => 'btn btn-sm btn-success' %>
 <% end %>
+
+
