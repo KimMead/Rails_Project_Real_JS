@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_17_200156) do
+ActiveRecord::Schema.define(version: 2019_05_18_013852) do
 
   create_table "attractions", force: :cascade do |t|
     t.string "name"
-    t.text "comment"
     t.string "location"
     t.integer "state_id"
     t.integer "user_id"
@@ -23,10 +22,9 @@ ActiveRecord::Schema.define(version: 2019_05_17_200156) do
     t.integer "rating"
   end
 
-  create_table "reviews", force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
     t.string "content"
-    t.integer "rating"
-    t.integer "attraction_id"
+    t.integer "state_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_05_17_200156) do
 
   create_table "states", force: :cascade do |t|
     t.string "name"
+    t.string "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

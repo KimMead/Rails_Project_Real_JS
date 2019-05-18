@@ -1,14 +1,16 @@
 </br>
 </br>
 </br>
-States Index
-
-<h1><% @states.each do |state| %></h1>
-<ul>
-    <li><%= link_to state.name, state_path(state) %>
-    </li>
-</ul>
+<h3>States Index</h3>
+</br>
+<% @states.each do |state| %>
+    <ul>
+    <li>
+        <%= link_to state.name, state_path(state) %></li>
+        </ul>
     <% end %>
-
-<%= link_to "See the Most Visited State", most_visited_url %>
-
+    
+    <p>
+    <%=link_to "See Reviews", attraction_reviews_path(@attraction.id) %> -
+    <%=link_to "Write A New Review", new_attraction_review_path(@attraction.id) %>
+    </p>

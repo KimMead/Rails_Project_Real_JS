@@ -1,0 +1,15 @@
+</br>
+</br>
+</br>
+<h3>Write your Comments for <%= @comment.state.name %></h3>
+</br>
+<%= form_for [@state, @comment] do |f|%>
+  <%= f.hidden_field :state_id%>
+  <div>
+    <%= f.label :content%>
+    <%= f.text_area(:content, {:class => 'form-control'})%>
+  </div>
+</br>
+  
+  <%= f.submit "Create Comments", :class => 'btn btn-sm btn-success'%>
+<% end %>

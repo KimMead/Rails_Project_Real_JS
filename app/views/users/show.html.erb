@@ -2,13 +2,12 @@
 </br>
 </br>
 </br>
-<h3>Welcome, <%= @user.name.capitalize %>!</h3>
+<h2>Welcome, <%= @user.name.capitalize %>!</h2>
+<hr>
+<h4><%= link_to "See Attractions", attractions_path(@user) %></h4>
 </br>
 </br>
-<%= link_to "See Your Attraction List", attractions_path(@user) %>
-</br>
-</br>
-<%= link_to "Add New Attraction", new_attraction_url(@user) %>
+
 
 
 

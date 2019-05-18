@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
+resources :comments
+resources :attractions  
 root 'welcome#home'
 
 get '/signup', to: 'users#new'
@@ -15,8 +16,10 @@ get '/auth/facebook/callback' => 'sessions#create'
 
 
 resources :users 
-
-resources :attractions  
 resources :states
-    
+
+resources :states do 
+  resources :comments, only: [:new, :create, :index]
+end 
+
 end
