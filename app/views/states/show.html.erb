@@ -14,4 +14,5 @@
 </ul>
 <% end %>
 <hr>
-<%= link_to "Create Attraction", new_attraction_path %>
+<%= link_to "See State Comments", state_comments_path(@state.id), :class => 'btn btn-sm btn-primary' %> 
+<%= link_to "Create New Comment", new_state_comment_path(@state.id), :class => 'btn btn-sm btn-primary' %>

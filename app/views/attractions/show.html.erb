@@ -5,17 +5,9 @@
 </br>
  <h4><%= @attraction.location %>, <%= @attraction.state.name %></h4>
  </br>
- <p>
- <%=link_to "See Reviews", attraction_reviews_path(@attraction.id) %> -
- <%=link_to "Write A New Review", new_attraction_review_path(@attraction.id) %>
- </p>
- <hr> 
+<hr> 
 <%= link_to "See Your List", attractions_path(@attraction), :class => 'btn btn-sm btn-primary' %>
-</br>
-</br>
 <%= link_to "Edit Attraction", edit_attraction_path(@attraction), :class => 'btn btn-sm btn-primary btn-rounded' %> 
-</br>
-</br>
 <%= link_to "Delete Attraction", attraction_path(@attraction), 
                         method: :delete, 
                         data: {confirm: 'Are you sure?'},

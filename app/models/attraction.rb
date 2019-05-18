@@ -8,4 +8,8 @@ class Attraction < ApplicationRecord
         state = State.find_or_create_by(attributes)
         self.state = state if state.valid? || !self.state 
     end
+
+    def attraction_plus_state 
+        "#{self.name}, #{state.name}"
+    end 
 end

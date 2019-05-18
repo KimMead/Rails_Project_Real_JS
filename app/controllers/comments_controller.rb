@@ -11,7 +11,6 @@ class CommentsController < ApplicationController
 
     def new
         @state = State.find_by_id(params[:state_id])
-        @comment = Comment.new 
         @comment = @state.comments.build
     end 
 
@@ -28,6 +27,6 @@ class CommentsController < ApplicationController
 
     private 
     def comments_params 
-        params.require(:comment).permit(:content)
+        params.require(:comment).permit(:state_id, :content)
     end 
 end
