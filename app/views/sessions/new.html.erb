@@ -1,6 +1,10 @@
-<h1>Sign In</h1>
+</br>
+</br>
+</br>
 
 <%= form_for :user do |f| %>
+
+  <%= render partial: 'layouts/errors', locals: {object: @user} %>
   </br>
     <%= f.text_field :email, placeholder: "Email" %>
     <%= f.password_field :password, placeholder: "Password" %><br><br>
