@@ -16,7 +16,7 @@
   <br/>
   <br/> 
   <%= f.label :state_id, "State" %>
-  <%= f.collection_select :state_id, State.all, :id, :name, prompt: true %>
+  <%= f.collection_select :state_id, State.order('name ASC'), :id, :name, prompt: true %>
   <hr>
   <%= f.submit "Update Attraction", :class => 'btn btn-sm btn-success' %>
 <% end %>

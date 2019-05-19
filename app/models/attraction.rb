@@ -3,6 +3,9 @@ class Attraction < ApplicationRecord
     belongs_to :state
     
     validates :name, :location, presence: true
+    validates :state_id, presence: true 
+    validates_associated :state 
+
 
     def state_attributes=(attributes)
         state = State.find_or_create_by(attributes)

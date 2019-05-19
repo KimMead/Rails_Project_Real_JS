@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+    
 
     def index
         @state = State.find_by_id(params[:state_id])
@@ -27,6 +28,6 @@ class CommentsController < ApplicationController
 
     private 
     def comments_params 
-        params.require(:comment).permit(:state_id, :content)
+        params.require(:comment).permit(:content)
     end 
 end
