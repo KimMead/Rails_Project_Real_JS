@@ -22,8 +22,7 @@ class SessionsController < ApplicationController
       u.email = auth['info']['email']
       u.password = auth['uid']  
     end
-    byebug
-
+    
     session[:user_id] = @user.id
 
     redirect_to '/attractions'
@@ -35,6 +34,7 @@ class SessionsController < ApplicationController
   end 
 
   private
+  
   def auth
     request.env['omniauth.auth']
   end

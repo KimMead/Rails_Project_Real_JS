@@ -1,8 +1,7 @@
 class CommentsController < ApplicationController
     
-
     def index
-        @state = State.find_by_id(params[:state_id])
+        find_state
         if @state
             @comments = @state.comments 
         else 
@@ -11,12 +10,12 @@ class CommentsController < ApplicationController
     end 
 
     def new
-        @state = State.find_by_id(params[:state_id])
+        find_state
         @comment = @state.comments.build
     end 
 
     def create
-        @state = State.find_by_id(params[:state_id])
+        find_state
         @comment = current_user.comments.build(comments_params)
         @comment.state = @state 
         if @comment.save 
@@ -27,7 +26,12 @@ class CommentsController < ApplicationController
     end 
 
     private 
+    
     def comments_params 
         params.require(:comment).permit(:content)
+    end 
+
+    def find_state 
+        @state = State.find_by(id: params[:state_id])
     end 
 end

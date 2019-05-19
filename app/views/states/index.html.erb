@@ -5,10 +5,12 @@
 </br>
 <% @states.each do |state| %>
     <ul>
-    <li>
+        <li>
         <%= link_to state.name, state_path(state) %></li>
-        </ul>
-    <% end %>
+    </ul>
+<% end %>
+
+<%= @state.most_comments %>
 
     
 

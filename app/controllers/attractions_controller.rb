@@ -27,7 +27,7 @@ class AttractionsController < ApplicationController
 
     def show
         find_user  
-        @attraction = Attraction.find_by(id: params[:id])
+        find_attraction
         if !@attraction 
             redirect_to attractions_path 
         end 
