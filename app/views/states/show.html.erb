@@ -3,8 +3,10 @@
 </br>
 <h2><%= @state.name %></h2>
 <hr>
+<h4>Comment Count: <%= @state.comments.count %></h4>
+<hr>
 
-<h4>User Attractions</h4>
+<h5>User Attractions</h5>
 
 <% @state.attractions.each do |attraction| %>
 <ul>

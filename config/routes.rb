@@ -12,6 +12,8 @@ post '/signin', to: 'sessions#create'
 
 get '/logout', to: 'sessions#destroy'
 
+get 'states/most_comments' => 'states#most_comments'
+
 get '/auth/facebook/callback' => 'sessions#create'
 
 
