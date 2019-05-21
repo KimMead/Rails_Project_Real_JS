@@ -1,23 +1,24 @@
 </br>
 </br>
 </br>
-<h4>Sign Up</h4>
-
+</br>
+<h3>Sign Up</h3>
+<hr>
 <%= form_for(@user) do |f| %>
 
 <%= render partial: 'layouts/errors', locals: {object: @user} %>
 
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field(:name, {:class => 'form-control'}) %>
   <br/>
   <br/>
   <%= f.label :email %> 
-  <%= f.email_field :email %> 
+  <%= f.email_field(:email, {:class => 'form-control'}) %> 
   <br/>
   <br/>
   <%= f.label :password %>
-  <%= f.password_field :password %>
+  <%= f.password_field(:password, {:class => 'form-control'}) %>
   <br/>
-  <br/>
-  <%= f.submit %>
+  <hr>
+  <%= f.submit 'Create User', :class => 'btn btn-block btn-success' %>
 <% end %>

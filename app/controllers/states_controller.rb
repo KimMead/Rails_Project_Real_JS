@@ -8,6 +8,10 @@ class StatesController < ApplicationController
         @state = State.find_by(id: params[:id])
     end 
 
+    def most_comments
+        @state = State.most_comments.first
+      end
+
     private 
 
     def state_params 

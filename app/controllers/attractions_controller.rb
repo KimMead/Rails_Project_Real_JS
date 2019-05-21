@@ -61,7 +61,7 @@ class AttractionsController < ApplicationController
     private
 
     def attraction_params 
-        params.require(:attraction).permit(:name, :location, :comment, :state_id, state_attributes: [:name])
+        params.require(:attraction).permit(:name, :location, :state_id, state_attributes: [:name])
     end 
 
     def find_user

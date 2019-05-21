@@ -4,8 +4,7 @@ class State < ApplicationRecord
 
     has_many :comments 
     has_many :users, through: :comments 
+
+    scope :most_comments, -> { joins(:comments).group('comments.state_id').order("count(comments.state_id) desc").limit(1)}
     
-    def self.comment_count
-        count(:comment)
-    end
 end

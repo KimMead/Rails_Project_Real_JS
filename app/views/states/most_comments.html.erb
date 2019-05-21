@@ -2,4 +2,8 @@
 </br>
 </br>
 </br>
-<%= @state.comments.count %>
+<h3><%= @state.name %> has the most comments!</h3> 
+<hr>
+<h4>Current Comment Count: <%= @state.comments.count %></h4>
+<hr>
+<%= link_to 'Back to States', states_path, :class => 'btn btn-sm btn-primary'%>

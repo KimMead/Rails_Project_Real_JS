@@ -1,17 +1,18 @@
 </br>
 </br>
 </br>
-<h3>States Index</h3>
 </br>
+<h3>States Index</h3>
+<hr>
 <% @states.each do |state| %>
     <ul>
         <li>
         <%= link_to state.name, state_path(state) %></li>
     </ul>
 <% end %>
-
-<%= link_to "Most Comments", states_most_comments_url %>
-
+<hr>
+<%= link_to "State With Most Comments", states_most_comments_url, :class => 'btn btn-sm btn-primary' %>
+<%= link_to "Your Attraction List", attractions_path(@user), :class => 'btn btn-sm btn-primary' %>
     
 
     

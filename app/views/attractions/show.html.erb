@@ -1,10 +1,13 @@
 </br>
 </br>
 </br>
-<h3><%= @attraction.name %></h3>
 </br>
- <h4><%= @attraction.location %>, <%= @attraction.state.name %></h4>
- </br>
+<h3><%= @attraction.name %></h3>
+<hr>
+<h4>Location: <%= @attraction.location %>
+</br>
+</br>
+State: <%= @attraction.state.name %></h4>
 <hr> 
 <%= link_to "See Your List", attractions_path(@attraction), :class => 'btn btn-sm btn-primary' %>
 <%= link_to "Edit Attraction", edit_attraction_path(@attraction), :class => 'btn btn-sm btn-primary btn-rounded' %> 
