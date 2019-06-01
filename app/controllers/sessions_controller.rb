@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController 
+  
     
   def new
     @user = User.new 
@@ -15,18 +16,15 @@ class SessionsController < ApplicationController
     end
   end
 
-  def fbcreate
-    @user = User.find_or_create_by(uid: auth['uid']) do |u|
-      binding.pry
-      u.username = auth['info']['name']
-      u.email = auth['info']['email']
-      u.password = auth['uid']  
-    end
-    
-    session[:user_id] = @user.id
+  def githubcreate
+    user = User.find_or_create_by(:provider => auth[:provider], :uid => auth[:uid]) do |user|
+      user.name = auth[:info][:name]
+  end 
 
-    redirect_to '/attractions'
-  end
+    session[:user_id] = user.id
+
+    redirect_to user_path(@user)
+  end 
     
   def destroy 
     session.delete :user_id

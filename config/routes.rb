@@ -10,12 +10,14 @@ post '/signup', to: 'users#create'
 get '/signin', to: 'sessions#new'
 post '/signin', to: 'sessions#create'
 
-get '/logout', to: 'sessions#destroy'
-
 get 'states/most_comments' => 'states#most_comments'
 
-get '/auth/facebook/callback' => 'sessions#create'
+get 'auth/developer', :as => 'developer_auth'
+get 'auth/github', :as => github_auth' 
 
+match 'auth/github/callback' => 'sessions#create', :via => [:get, :post]
+
+get '/logout', to: 'sessions#destroy'
 
 resources :users 
 resources :states
