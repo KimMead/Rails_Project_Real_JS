@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
@@ -16,11 +17,12 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 gem 'omniauth'
-gem 'omniauth-github'
+
 gem 'dotenv-rails'
 gem 'bcrypt'
 gem 'thin'
 gem 'pry'
+gem 'omniauth-github'
 
 
 # Use CoffeeScript for .coffee assets and views

@@ -12,12 +12,10 @@ post '/signin', to: 'sessions#create'
 
 get 'states/most_comments' => 'states#most_comments'
 
-get 'auth/developer', :as => 'developer_auth'
-get 'auth/github', :as => github_auth' 
+get "/auth/:provider/callback", to: "sessions#create"
+get 'auth/failure', to: redirect('/')
+delete 'signout', to: 'sessions#destroy', as: 'signout'
 
-match 'auth/github/callback' => 'sessions#create', :via => [:get, :post]
-
-get '/logout', to: 'sessions#destroy'
 
 resources :users 
 resources :states
