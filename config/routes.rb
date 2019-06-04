@@ -12,7 +12,7 @@ post '/signin', to: 'sessions#create'
 
 get 'states/most_comments' => 'states#most_comments'
 
-get "/auth/:provider/callback", to: "sessions#create"
+get "/auth/:provider/callback", to: "sessions#githubcreate"
 get 'auth/failure', to: redirect('/')
 delete 'signout', to: 'sessions#destroy', as: 'signout'
 
