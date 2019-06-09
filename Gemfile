@@ -20,7 +20,6 @@ gem 'omniauth'
 
 gem 'dotenv-rails'
 gem 'bcrypt'
-gem 'thin'
 gem 'pry'
 gem 'omniauth-github'
 

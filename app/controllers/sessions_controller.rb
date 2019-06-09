@@ -1,10 +1,18 @@
 class SessionsController < ApplicationController 
   
-    
   def new
     @user = User.new 
   end 
-    
+
+  def githubcreate
+    user = User.from_omniauth(env["omniauth.auth"])
+
+    if user.valid?
+      session[:user_id] = user.id
+      redirect_to request.env['omniauth.origin']
+    end
+  end
+
   def create
     @user = User.find_by(email: params[:user][:email])
     if @user && @user.authenticate(params[:user][:password])
@@ -16,15 +24,6 @@ class SessionsController < ApplicationController
     end
   end
 
-  def githubcreate
-    user = User.find_or_create_by(:provider => auth[:provider], :uid => auth[:uid]) do |user|
-      user.name = auth[:info][:name]
-  end 
-
-    session[:user_id] = user.id
-
-    redirect_to user_path(@user)
-  end 
     
   def destroy 
     session.delete :user_id
@@ -33,7 +32,7 @@ class SessionsController < ApplicationController
 
   private
   
-  def auth
+  def auth_hash
     request.env['omniauth.auth']
   end
     
