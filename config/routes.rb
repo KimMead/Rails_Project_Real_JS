@@ -14,7 +14,7 @@ get 'states/most_comments' => 'states#most_comments'
 
 #Authentication
 
-  get "/auth/:provider/callback", to: "sessions#githubcreate"
+  get '/auth/:provider/callback', to: "sessions#create"
   get 'auth/failure', to: redirect('/')
   delete 'signout', to: 'sessions#destroy', as: 'signout'
 
