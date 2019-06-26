@@ -14,7 +14,7 @@ get 'states/most_comments' => 'states#most_comments'
 
 #Authentication
 
-  get '/auth/:provider/callback', to: "sessions#create"
+  get '/auth/google_oauth2/callback', to: "sessions#omniauth"
   get 'auth/failure', to: redirect('/')
   delete 'signout', to: 'sessions#destroy', as: 'signout'
 

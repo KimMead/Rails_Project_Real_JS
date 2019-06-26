@@ -20,7 +20,8 @@ gem 'omniauth'
 gem 'dotenv-rails'
 gem 'bcrypt'
 gem 'pry'
-gem 'omniauth-github'
+#gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
 
 
 # Use CoffeeScript for .coffee assets and views
