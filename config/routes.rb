@@ -12,11 +12,11 @@ post '/signin', to: 'sessions#create'
 
 get 'states/most_comments' => 'states#most_comments'
 
+delete 'signout', to: 'sessions#destroy', as: 'signout'
+
 #Authentication
 
-  get '/auth/google_oauth2/callback', to: "sessions#omniauth"
-  get 'auth/failure', to: redirect('/')
-  delete 'signout', to: 'sessions#destroy', as: 'signout'
+get '/auth/:provider/callback' => 'sessions#create'
 
 
 resources :users 
