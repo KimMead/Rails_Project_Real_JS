@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 resources :attractions  
 root 'welcome#home'
 
+get '/auth/:provider/callback' => 'sessions#create'
+
 get '/signup', to: 'users#new'
 post '/signup', to: 'users#create' 
 
@@ -13,11 +15,6 @@ post '/signin', to: 'sessions#create'
 get 'states/most_comments' => 'states#most_comments'
 
 delete 'signout', to: 'sessions#destroy', as: 'signout'
-
-#Authentication
-
-get '/auth/:provider/callback' => 'sessions#create'
-
 
 resources :users 
 resources :states
