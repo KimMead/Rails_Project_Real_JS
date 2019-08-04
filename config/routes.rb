@@ -14,7 +14,7 @@ post '/signin', to: 'sessions#create'
 
 get 'states/most_comments' => 'states#most_comments'
 
-delete 'signout', to: 'sessions#destroy', as: 'signout'
+get 'signout', to: 'sessions#destroy', as: 'signout'
 
 resources :users 
 resources :states

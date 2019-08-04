@@ -1,0 +1,8 @@
+<header>
+
+<% if logged_in? %>
+  <%= link_to("Home", user_path(current_user), :class => 'logo') %>
+  
+  
+<% end %>
+</header>
