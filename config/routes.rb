@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-resources :attractions  
+resources :attractions do
+    resources :likes
+end
+
 root 'welcome#home'
 
 get '/auth/:provider/callback' => 'sessions#create'

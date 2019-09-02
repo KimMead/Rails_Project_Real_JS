@@ -15,4 +15,9 @@ class Attraction < ApplicationRecord
     def attraction_plus_state 
         "#{self.name}, #{state.name}"
     end 
+
+    def likes_count 
+    end 
+
+    
 end
